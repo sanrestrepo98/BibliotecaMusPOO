@@ -1,17 +1,17 @@
 import sys
 class Archivo:
 	
-	ListaArchivos = {}
+	ListaArchivos = []
 	
 	
 	def __init__ (self, titulo,artista,album,genero,region,fecha):
-		str self._titulo=titulo
-		str self._artista=artista
-		str self._album=album
-		str self._genero=genero
-		str self._region=region
-		int self._descargas=0
-		date self._fecha=fecha
+		self._titulo=titulo
+		self._artista=artista
+		self._album=album
+		self._genero=genero
+		self._region=region
+		self._descargas=0
+		self._fecha=fecha
 		Archivo.ListaArchivos.append(self)
 
 	@staticmethod
@@ -89,3 +89,6 @@ class Archivo:
 
 	def getFecha (self):
 		return self._fecha
+
+if __name__ == "__main__":
+print (Archivo())

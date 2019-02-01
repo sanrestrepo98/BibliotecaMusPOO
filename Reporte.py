@@ -7,8 +7,8 @@ class Reporte:
 
 	def __init__ (self,fecha,descripcion):
 		date self._fecha=fecha
-		str self._descripcion=descripcion
-		Reporte.ListaReportes.append()
+		self._descripcion=descripcion
+		Reporte.ListaReportes.append(self)
 
 	def setFecha (self,fecha):
 		self._fecha = fecha

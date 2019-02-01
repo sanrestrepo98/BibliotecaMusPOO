@@ -5,9 +5,9 @@ class Reseña:
 
 	def __init__(self,fecha,calificacion,comentario):
 		date self._fecha=fecha
-		int self._calificacion=calificacion
-		str self._comentario=comentario
-		Reseña.ListaReseñas.append()
+		self._calificacion=calificacion
+		self._comentario=comentario
+		Reseña.ListaReseñas.append(self)
 
 	def setFecha (self,fecha):
 		self._fecha = fecha
