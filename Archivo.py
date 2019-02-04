@@ -11,14 +11,14 @@ class Archivo:
 		self._genero=genero
 		self._region=region
 		self._descargas=0
-		self._fecha=fecha
+		self._fecha=fecha 
 		Archivo.ListaArchivos.append(self)
 
 	@staticmethod
 	def BuscarPorTitulo(self,title):
-		for song in Archivo.ListaArchivos:
-			if Archivo.getTitulo() == title:
-				return song
+		for archivo in Archivo.ListaArchivos:
+			if archivo.getTitulo() == title:
+				return archivo
 
 	@staticmethod
 	def BuscarPorArtista(self,artista):
@@ -90,5 +90,3 @@ class Archivo:
 	def getFecha (self):
 		return self._fecha
 
-if __name__ == "__main__":
-print (Archivo())

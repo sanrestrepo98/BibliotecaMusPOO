@@ -3,7 +3,7 @@ import Archivo
 import Usuario
 class Reporte:
 	
-	ListaReportes = {}
+	ListaReportes = []
 
 	def __init__ (self,fecha,descripcion):
 		date self._fecha=fecha

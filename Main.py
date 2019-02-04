@@ -82,8 +82,8 @@ class Main:
 				print("{0} no es una opcion valida".format(opcion))
                
 if __name__ == "__main__":
-  
-   Main.run()
+   m=Main()
+   m.run()
 
 
 

@@ -1,7 +1,7 @@
 import sys
 class Reseña:
 
-	ListaReseñas = {}
+	ListaReseñas = []
 
 	def __init__(self,fecha,calificacion,comentario):
 		date self._fecha=fecha
