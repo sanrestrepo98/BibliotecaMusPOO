@@ -9,12 +9,12 @@ class Main:
 
 	def __init__(self):
 		self.break_while=1
-		self._choises ={
-		'1': self._Ver_nombre,
-        '2': self._Ingresar_usuario,
-        '3': self._Cambiar_nombre,
-        '4': self._Crear_play,
-        '5': self._salir,
+		self.choises ={
+		'1': self.VerNombre,
+        '2': self.RegistrarUs,
+        '3': self.CambiarNombre,
+        '4': self.CrearPlaylist,
+        '5': self.salir,
         }
 
 #Este método es para desplegar el menu
@@ -24,7 +24,7 @@ class Main:
         Operaciones
         1. Ver nombre
         2. Registrar usuario
-        3. Cambiar nombre
+        3. Cambia nombre
         4. Crear Playlist
         5. Salir
         """)
@@ -32,11 +32,11 @@ class Main:
 #Este método es para ver el nombre (creo que es obvio)
 
 	def VerNombre(self):
-		Usuario.getNombre()
+		Usuario().getNombre()
 
 #Este método es para ingresar usuarios
 
-	def IngresarUs (self):
+	def RegistrarUs (self):
 		u1=Usuario()
 		nombre=input("Ingrese nombre: ")
 		u1.setNombre(nombre)
@@ -51,7 +51,7 @@ class Main:
 #Cambiar el nombre del usuario
 
 	def CambiarNombre(self,nombre):
-		Usuario.setNombre(nombre)
+		Usuario().setNombre(nombre)
 
 #Crea Playlist
 
@@ -61,7 +61,7 @@ class Main:
 		p1.setNombreP(nom)
 		des=input("Ingrese descripcion de la Playlist")
 		p1.setDescripcion(des)
-		Playlist.lista_play.append(p1)
+		Playlist().lista_play.append(p1)
 
 
 	def salir (self):
