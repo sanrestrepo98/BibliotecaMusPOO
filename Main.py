@@ -39,6 +39,7 @@ class Main:
 #Este método es para ver el nombre (creo que es obvio)
 
 	def VerNombre(self):
+		
 		Usuario().getNombre()
 
 #Este método es para ingresar usuarios
