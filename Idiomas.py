@@ -12,6 +12,7 @@ class Idioma:
 		""",
 	"opcion": "¿Qué desea hacer?: ",
 	"opcionNoValida": "{0} no es una opción válida",
+	"salir": "Hasta luego, vuelve pronto :c"
 	#Acá se van agregando todos los textos que querramos
 	}
 	
@@ -26,5 +27,6 @@ class Idioma:
 		""",
 	"opcion": "What would you like to do?: ",
 	"opcionNoValida": "{0} isn't a valid option",
+	"salir": "Bye, see you later"
 	#El mismo comentario de arriba pero en inglés :v
 	}
