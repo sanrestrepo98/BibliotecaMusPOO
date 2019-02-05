@@ -1,5 +1,5 @@
 import sys
-import Usuario
+from Usuario import Usuario
 import PlayList
 from Idiomas import Idioma
 
@@ -16,6 +16,7 @@ class Main:
        		"4": self.CrearPlaylist,
  			"5": self.salir
         }
+	
 
 #Este método es para desplegar el menu
 	@staticmethod
@@ -43,16 +44,18 @@ class Main:
 #Este método es para ingresar usuarios
 
 	def RegistrarUs (self):
-		u1=Usuario()
+		
 		nombre=input("Ingrese nombre: ")
-		u1.setNombre(nombre)
+		
 		num=int(input("Ingrese id: "))
-		u1.setId(num)
+		
 		ema=input("Ingrese Email: ")
-		u1.setEmail(ema)
+		
 		pas=input("Ingrese contraseña: ")
-		u1.setPassword(pas)
-		Usuario.lista_us.append(u1)
+		
+		u1=Usuario(nombre,num,ema,pas)
+		
+		print(u1.getNombre())
 
 #Cambiar el nombre del usuario
 
