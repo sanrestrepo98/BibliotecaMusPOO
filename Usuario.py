@@ -8,7 +8,7 @@ class Usuario:
 		self._ids=ids
 		self._email=email
 		self._password=password
-		Usuario().lista_us.append(self)
+		
 
 ##Este método elimina usuarios
 	@staticmethod

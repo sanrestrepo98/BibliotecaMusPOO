@@ -30,3 +30,4 @@ class Idioma:
 	"salir": "Bye, see you later"
 	#El mismo comentario de arriba pero en inglés :v
 	}
+
