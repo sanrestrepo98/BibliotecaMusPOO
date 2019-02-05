@@ -21,7 +21,7 @@ class Main:
 #Este método es para desplegar el menu
 	@staticmethod
 	def display_menu():
-		print(Idioma.diccionarioMensajes.get("operaciones"))
+		print(Idiomas.diccionarioMensajes.get("operaciones"))
 
 #Este método es para elegir el idioma
 	@staticmethod
@@ -32,9 +32,9 @@ class Main:
 			""")
 		idioma = input("Seleccione un idioma: ")
 		if idioma =="1":
-			Idioma.diccionarioMensajes = Idioma.español
+			Idiomas.diccionarioMensajes = Idiomas.español
 		elif idioma =="2":
-			Idioma.diccionarioMensajes = Idioma.ingles
+			Idiomas.diccionarioMensajes = Idiomas.ingles
 
 #Este método es para ver el nombre (creo que es obvio)
 
@@ -55,6 +55,8 @@ class Main:
 		pas=input("Ingrese contraseña: ")
 		
 		u1=Usuario(nombre,num,ema,pas)
+
+		Usuario().lista_us.append(u1)
 		
 		print(u1.getNombre())
 
@@ -66,34 +68,31 @@ class Main:
 #Crea Playlist
 
 	def CrearPlaylist(self):
-		p1=Playlist()
 		nom=input("Ingrese nombre de la Playlist")
-		p1.setNombreP(nom)
 		des=input("Ingrese descripcion de la Playlist")
-		p1.setDescripcion(des)
+		p1=Playlist(nom,des)
 		Playlist().lista_play.append(p1)
 
 #Este método es para salir de la aplicación(? (No estoy muy seguro :c)
 	@staticmethod
 	def salir():
-		print(Idioma.listaMensajes.get("salir"))
+		print(Idiomas.listaMensajes.get("salir"))
 		sys._exit(0)
  
 
 #Aqui se corre el programa
      
 	def run (self):
+		Main.idiomaMensajes()
 		while self.break_while==1:
 			self.display_menu()
-			opcion = input(Idioma.diccionarioMensajes.get("opcion"))
+			opcion = input(Idiomas.diccionarioMensajes.get("opcion"))
 			action = self.choices.get(opcion)
 			if action:
 				action()
 			else:
-				print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
+				print(Idiomas.diccionarioMensajes.get("opcionNoValida").format(opcion))
                
 if __name__ == "__main__":
    Main().run()
-
-
 
