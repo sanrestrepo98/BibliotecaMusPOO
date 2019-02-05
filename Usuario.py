@@ -12,7 +12,7 @@ class Usuario:
 
 ##Este método elimina usuarios
 	@staticmethod
-	def EliminarUs (self,ids):
+	def EliminarUs (ids):
 		for idss in Usuario.lista_us():
 			if(ids==idss.getId()):
 				Usuario().lista_us.remove(idss)
