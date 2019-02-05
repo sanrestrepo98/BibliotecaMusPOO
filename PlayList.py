@@ -1,5 +1,5 @@
 import sys
-import Archivo
+from Archivo import Archivo
 class Playlist:
 
 	lista_play=[]
@@ -12,7 +12,7 @@ class Playlist:
 #Agrega archivos
 	@staticmethod
 	def AgregarAr (self,nombreDeLaCan):
-		for titulo in Archivo.ListaArchivos():
+		for titulo in Archivo.ListaArchivos:
 			if(titulo.getTitulo()==nombreDeLaCan):
 				Playlist.lista_play.append(titulo)
 
