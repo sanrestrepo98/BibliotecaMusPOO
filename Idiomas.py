@@ -1,3 +1,4 @@
+import sys
 class Idioma:
 	diccionarioMensajes = {}
 	#Acá van todos los mensajes en español, tenemos que definir cuáles serán, por el momento pondré el menú inicial
