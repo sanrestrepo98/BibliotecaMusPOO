@@ -46,17 +46,15 @@ class Main:
 
 	def RegistrarUs (self):
 		
-		nombre=input("Ingrese nombre: ")
+		nombre=input((Idiomas.diccionarioMensajes.get("nombreUs")))
 		
-		num=int(input("Ingrese id: "))
+		num=int(input(Idiomas.diccionarioMensajes.get("idUS")))
 		
-		ema=input("Ingrese Email: ")
+		ema=input(Idiomas.diccionarioMensajes.get("emailUs"))
 		
-		pas=input("Ingrese contraseña: ")
+		pas=input(Idiomas.diccionarioMensajes.get("passwordUs"))
 		
 		u1=Usuario(nombre,num,ema,pas)
-
-		Usuario().lista_us.append(u1)
 		
 		print(u1.getNombre())
 
@@ -68,8 +66,10 @@ class Main:
 #Crea Playlist
 
 	def CrearPlaylist(self):
-		nom=input("Ingrese nombre de la Playlist")
-		des=input("Ingrese descripcion de la Playlist")
+		p1=Playlist()
+		nom=input(Idiomas.diccionarioMensajes.get("nombrePL"))
+		p1.setNombreP(nom)
+		des=input(Idiomas.diccionarioMensajes.get("desPL"))
 		p1=Playlist(nom,des)
 		Playlist().lista_play.append(p1)
 
