@@ -21,7 +21,7 @@ class Main:
 #Este método es para desplegar el menu
 	@staticmethod
 	def display_menu():
-		print(Idiomas.diccionarioMensajes.get("operaciones"))
+		print(Idioma.diccionarioMensajes.get("operaciones"))
 
 #Este método es para elegir el idioma
 	@staticmethod
@@ -39,39 +39,39 @@ class Main:
 #Este método es para ver el nombre (creo que es obvio)
 
 	def VerNombre(self):
-		
-		Usuario().getNombre()
-
+		Usuario.getNombre()
 #Este método es para ingresar usuarios
 
 	def RegistrarUs (self):
 		
-		nombre=input("Ingrese nombre: ")
+		nombre=input((Idiomas.diccionarioMensajes.get("nombreUs")))
 		
-		num=int(input("Ingrese id: "))
+		num=int(input(Idiomas.diccionarioMensajes.get("idUS")))
 		
-		ema=input("Ingrese Email: ")
+		ema=input(Idiomas.diccionarioMensajes.get("emailUs"))
 		
-		pas=input("Ingrese contraseña: ")
+		pas=input(Idiomas.diccionarioMensajes.get("passwordUs"))
 		
 		u1=Usuario(nombre,num,ema,pas)
 
-		Usuario().lista_us.append(u1)
+		Usuario.lista_us.append(u1)
 		
 		print(u1.getNombre())
 
 #Cambiar el nombre del usuario
 
 	def CambiarNombre(self,nombre):
-		Usuario().setNombre(nombre)
+		Usuario.setNombre(nombre)
 
 #Crea Playlist
 
 	def CrearPlaylist(self):
-		nom=input("Ingrese nombre de la Playlist")
-		des=input("Ingrese descripcion de la Playlist")
+		p1=Playlist()
+		nom=input(Idiomas.diccionarioMensajes.get("nombrePL"))
+		p1.setNombreP(nom)
+		des=input(Idiomas.diccionarioMensajes.get("desPL"))
 		p1=Playlist(nom,des)
-		Playlist().lista_play.append(p1)
+		Playlist.lista_play.append(p1)
 
 #Este método es para salir de la aplicación(? (No estoy muy seguro :c)
 	@staticmethod
