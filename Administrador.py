@@ -4,4 +4,4 @@ class Administrador:
 	ListaAdministradores = {}
 
 	def __init__(self):
-		Administrador.ListaAdministradores.append()
+		Administrador.ListaAdministradores.append(self)
