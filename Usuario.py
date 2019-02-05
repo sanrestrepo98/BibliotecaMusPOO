@@ -8,6 +8,7 @@ class Usuario:
 		self._ids=ids
 		self._email=email
 		self._password=password
+		Usuario.lista_us.append(self)
 		
 
 ##Este método elimina usuarios
@@ -15,7 +16,7 @@ class Usuario:
 	def EliminarUs (self,ids):
 		for idss in Usuario.lista_us():
 			if(ids==idss.getId()):
-				Usuario().lista_us.remove(idss)
+				Usuario.lista_us.remove(idss)
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def getId (self):

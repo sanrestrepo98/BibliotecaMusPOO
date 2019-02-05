@@ -11,42 +11,49 @@ class Archivo:
 		self._genero=genero
 		self._region=region
 		self._descargas=0
-		self._fecha=fecha 
-		Archivo().ListaArchivos.append(self)
+		self._fecha=fecha
+		self._listaComentarios = []
+		Archivo.ListaArchivos.append(self)
 
 	@staticmethod
 	def BuscarPorTitulo(self,title):
-		for archivo in Archivo().ListaArchivos:
+		for archivo in Archivo.ListaArchivos:
 			if archivo.getTitulo() == title:
 				return archivo
 
 	@staticmethod
 	def BuscarPorArtista(self,artista):
-		for song in Archivo().ListaArchivos:
+		for song in Archivo.ListaArchivos:
 			if song.getArtista() == artista:
 				return song
 
 	@staticmethod
 	def BuscarPorAlbum(self,album):
-		for song in Archivo.ListaArchivos():
+		for song in Archivo.ListaArchivos:
 			if song.getAlbum() == album:
 				return song
 
 	@staticmethod
 	def BuscarPorGenero(self,genero):
-		for song in Archivo.ListaArchivos():
+		for song in Archivo.ListaArchivos:
 			if song.getGenero() == genero:
 				return song
 
 	@staticmethod
 	def BuscarPorRegion(self,region):
-		for song in Archivo.ListaArchivos():
+		for song in Archivo.ListaArchivos:
 			if song.getRegion() == genero:
 				return song
 
 	@staticmethod
 	def BorrarArchivo(self,titulo):
-		Archivo().ListaArchivos.remove(titulo)
+		Archivo.ListaArchivos.remove(titulo)
+
+	def setComentarios(self, comment):
+        self._listaComentarios.append(comment)
+
+    def getComentarios(self):
+        return self._listaComentarios
 
 	def setTitulo (self, title):
 		self._titulo = title
