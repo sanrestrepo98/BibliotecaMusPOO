@@ -11,15 +11,15 @@ class Main:
         self.choices ={
                        "1": self.RegistrarUs,
                        "2": self.CambiarNombre,
-                       "3": self.verUsuarios,
+                       "3": self.verUsuario,
                        "4": self.CrearPlaylist,
                        "5": self.salir
         }
 	
 #Este método es para desplegar el menu
-    def verUsuarios(self):
-       for usuario in Usuario.lista_us:
-            print (usuario())
+    @staticmethod
+    def verUsuario():
+        print(Usuario.verUsuarios())
 
     @staticmethod
     def display_menu():
@@ -39,9 +39,10 @@ class Main:
             Idioma.diccionarioMensajes = Idioma.ingles
 
 #Este método es para ingresar usuarios
-
-    def RegistrarUs (self):
+    @staticmethod
+    def RegistrarUs ():
         nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
+
         num=input(Idioma.diccionarioMensajes.get("idUs"))
 		
         ema=input(Idioma.diccionarioMensajes.get("emailUs"))
@@ -55,13 +56,13 @@ class Main:
         print(Idioma.diccionarioMensajes.get("saludo") + " " +u1.getNombre())
 
 #Cambiar el nombre del usuario
-
-    def CambiarNombre(self,nombre):
+    @staticmethod
+    def CambiarNombre(nombre):
         Usuario.setNombre(nombre)
 
 #Crea Playlist
-    
-    def CrearPlaylist(self):
+    @staticmethod
+    def CrearPlaylist():
         nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
         des=input(Idioma.diccionarioMensajes.get("desPL"))
         p1=Playlist(nom,des)

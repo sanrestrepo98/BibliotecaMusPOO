@@ -16,10 +16,11 @@ class Archivo:
 		Archivo.ListaArchivos.append(self)
 
 	@staticmethod
-	def BuscarPorTitulo(title):
+	def BuscarPorTitulo():
 		for archivo in Archivo.ListaArchivos:
 			if archivo.getTitulo() == title:
 				return archivo
+
 
 	@staticmethod
 	def BuscarPorArtista(artista):

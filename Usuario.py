@@ -14,9 +14,14 @@ class Usuario:
 ##Este método elimina usuarios
 	@staticmethod
 	def EliminarUs (ids):
-		for idss in Usuario.lista_us():
+		for idss in Usuario.lista_us:
 			if(ids==idss.getId()):
 				Usuario.lista_us.remove(idss)
+
+	@staticmethod
+	def verUsuarios():
+	   for usuario in Usuario.lista_us:
+	           return usuario
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def getId (self):
