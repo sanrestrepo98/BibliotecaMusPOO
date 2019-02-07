@@ -11,7 +11,7 @@ class Main:
         self.choices ={
                        "1": self.RegistrarUs,
                        "2": self.CambiarNombre,
-                       "3": self.verUsuario,
+                       "3": self.verUsuarios,
                        "4": self.CrearPlaylist,
                        "5": self.salir
         }
@@ -35,6 +35,9 @@ class Main:
         elif idioma =="2":
             Idioma.diccionarioMensajes = Idioma.ingles
 
+    @staticmethod
+    def verUsuarios():
+        Usuario.verUsuarios()
 #Este método es para ingresar usuarios
     @staticmethod
     def RegistrarUs ():
