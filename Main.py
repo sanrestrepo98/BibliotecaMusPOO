@@ -1,4 +1,4 @@
-import sys
+import os
 from Usuario import Usuario
 from PlayList import Playlist
 from Idiomas import Idioma
@@ -17,9 +17,6 @@ class Main:
         }
 	
 #Este método es para desplegar el menu
-    @staticmethod
-    def verUsuario():
-        print(Usuario.verUsuarios())
 
     @staticmethod
     def display_menu():
@@ -72,7 +69,7 @@ class Main:
     @staticmethod
     def salir():
         print(Idioma.diccionarioMensajes.get("salir"))
-        sys._exit(0)
+        os._exit(0)
  
 
 #Aqui se corre el programa
