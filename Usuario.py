@@ -3,9 +3,8 @@ class Usuario:
 
 	lista_us=[]
 
-	def __init__(self,nombre,ids,email,password):
+	def __init__(self,nombre,email,password):
 		self._nombre=nombre
-		self._ids=ids
 		self._email=email
 		self._password=password
 		Usuario.lista_us.append(self)
@@ -14,9 +13,7 @@ class Usuario:
 ##Este método elimina usuarios
 	@staticmethod
 	def EliminarUs (ids):
-		for idss in Usuario.lista_us:
-			if(ids==idss.getId()):
-				Usuario.lista_us.remove(idss)
+		Usuario.lista_us.remove(ids)
 
 	@staticmethod
 	def verUsuarios():
