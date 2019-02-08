@@ -21,7 +21,7 @@ class Usuario:
 	@staticmethod
 	def verUsuarios():
 	   for usuario in Usuario.lista_us:
-	           print(usuario.verUsuarios())
+	           print(usuario._nombre)
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def getId (self):

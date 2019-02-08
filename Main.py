@@ -38,22 +38,16 @@ class Main:
     @staticmethod
     def verUsuarios():
         Usuario.verUsuarios()
+
 #Este método es para ingresar usuarios
     @staticmethod
     def RegistrarUs ():
         nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
-
-        num=input(Idioma.diccionarioMensajes.get("idUs"))
-		
-        ema=input(Idioma.diccionarioMensajes.get("emailUs"))
-	
-        pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
-        
-        u1=Usuario(nombre,num,ema,pas)
-        
-        Usuario.lista_us.append(u1) 
-		
-        print(Idioma.diccionarioMensajes.get("saludo") + " " +u1.getNombre())
+        num=input(Idioma.diccionarioMensajes.get("idUs"))		
+        ema=input(Idioma.diccionarioMensajes.get("emailUs"))	
+        pas=input(Idioma.diccionarioMensajes.get("passwordUs"))        
+        Usuario(nombre,num,ema,pas)    
+        print(Idioma.diccionarioMensajes.get("saludo") + " " +nombre)
 
 #Cambiar el nombre del usuario
     @staticmethod
