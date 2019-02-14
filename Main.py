@@ -47,25 +47,22 @@ class Main:
 
 #Este método es para ingresar usuarios
     @staticmethod
-    def RegistrarUs ():
-        x=True
-        while x:
+    def RegistrarUs ():        
+        while True:
             nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
             if Usuario.VerificacionNombre(nombre):
                 print('El nombre ya se encuentra ocupado.')
             else:
-                nam=nombre
-                x=False
-        x=True
-        while x:
+                break
+        
+        while True:
             email=input(Idioma.diccionarioMensajes.get("emailUs"))
             if Usuario.VerificacionEmail(email):
                 print('El email ya se encuentra en uso.')
             else:
-                ema=email
-                x=False 	
+                break
         pas=input(Idioma.diccionarioMensajes.get("passwordUs"))        
-        Usuario(nam,ema,pas)    
+        Usuario(nombre,email,pas)    
         print(Idioma.diccionarioMensajes.get("saludo") + " " +nombre)
 
 #Cambiar el nombre del usuario
