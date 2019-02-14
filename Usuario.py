@@ -13,12 +13,24 @@ class Usuario:
 ##Este método elimina usuarios
 	@staticmethod
 	def EliminarUs (ids):
-		Usuario.lista_us.remove(ids)
+		Usuario.lista_us.pop(int(ids))
 
 	@staticmethod
 	def verUsuarios():
 	   for usuario in Usuario.lista_us:
-	           print(usuario._nombre)
+	        print(usuario._nombre,usuario._email,usuario._password)
+
+	@staticmethod
+	def VerificacionNombre(nombre):
+		for usuario in Usuario.lista_us:
+			if nombre==usuario._nombre:
+				return True
+	
+	@staticmethod
+	def VerificacionEmail(email):
+		for usuario in Usuario.lista_us:
+			if email==usuario._email:
+				return True
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def getId (self):

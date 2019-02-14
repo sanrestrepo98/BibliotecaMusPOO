@@ -13,8 +13,8 @@ class Main:
                        "2": self.CambiarNombre,
                        "3": self.verUsuarios,
                        "4": self.CrearPlaylist,
-                       "5": self.salir,
-                       "6": self.EliminarUs
+                       "5": self.EliminarUs,
+                       "6": self.salir
         }
 	
 #Este método es para desplegar el menu
@@ -25,7 +25,8 @@ class Main:
 
     @staticmethod
     def EliminarUs():
-        Usuario.EliminarUs(id)
+        idel=input((Idioma.diccionarioMensajes.get("ElId")))
+        Usuario.EliminarUs(idel)
 
 #Este método es para elegir el idioma
     @staticmethod
@@ -47,11 +48,24 @@ class Main:
 #Este método es para ingresar usuarios
     @staticmethod
     def RegistrarUs ():
-        nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
-        	
-        ema=input(Idioma.diccionarioMensajes.get("emailUs"))	
+        x=True
+        while x:
+            nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
+            if Usuario.VerificacionNombre(nombre):
+                print('El nombre ya se encuentra ocupado.')
+            else:
+                nam=nombre
+                x=False
+        x=True
+        while x:
+            email=input(Idioma.diccionarioMensajes.get("emailUs"))
+            if Usuario.VerificacionEmail(email):
+                print('El email ya se encuentra en uso.')
+            else:
+                ema=email
+                x=False 	
         pas=input(Idioma.diccionarioMensajes.get("passwordUs"))        
-        Usuario(nombre,ema,pas)    
+        Usuario(nam,ema,pas)    
         print(Idioma.diccionarioMensajes.get("saludo") + " " +nombre)
 
 #Cambiar el nombre del usuario

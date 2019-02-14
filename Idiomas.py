@@ -9,7 +9,8 @@ class Idioma:
 		2. Cambiar Nombre
 		3. Ver Usuarios
 		4. Crear Playlist
-		5. Salir
+		5. Eliminar Usuario
+		6. Salir
 		""",
       "saludo": "Hola ",
 	"opcion": "¿Qué desea hacer?: ",
@@ -20,7 +21,8 @@ class Idioma:
 	"emailUs": "Ingrese e-mail: ",
 	"passwordUs": "Ingrese la contraseña: ",
 	"nombrePL": "Ingrese el nombre de la Playlist: ",
-	"desPL": "Ingrese la descripción de la Playlist: "
+	"desPL": "Ingrese la descripción de la Playlist: ",
+	"ElId": "Ingrese el id del usuario a eliminar: "
 	#Acá se van agregando todos los textos que querramos
 	}
 	
