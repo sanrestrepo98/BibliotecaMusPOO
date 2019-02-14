@@ -1,12 +1,12 @@
 import sys
 import Archivo
-import Usuario
+from Usuario import Usuario
 class Reporte:
 	
 	ListaReportes = []
 
 	def __init__ (self,fecha,descripcion):
-		date self._fecha=fecha
+		self._fecha=fecha
 		self._descripcion=descripcion
 		Reporte.ListaReportes.append(self)
 
