@@ -12,8 +12,9 @@ class Idioma:
 		5. ver Playlist
 		6. Generar Usuarios
 		7. Generar Playlist(genere usuarios primero)
-		8. Salir
+		8. Salir		
 		""",
+
       "saludo": "Hola ",
 	"opcion": "¿Qué desea hacer?: ",
 	"opcionNoValida": "{0} no es una opción válida",
@@ -28,7 +29,9 @@ class Idioma:
 	"formatoCortoPlay": "Nombre de la Playlist: %s Descripcion: %s ",
 	"desPL": "Ingrese la descripción de la Playlist: ",
 	"nombreUsPlay": "Ingrese Usuario Asociado",
-	"MensajeCreacionPlay": "Has creado una PlayList :3"
+	"MensajeCreacionPlay": "Has creado una PlayList :3",
+	"desPL": "Ingrese la descripción de la Playlist: ",
+	"ElId": "Ingrese el id del usuario a eliminar: ",
 	#Acá se van agregando todos los textos que querramos
 	}
 	

@@ -1,4 +1,4 @@
-import sys
+import os
 from Usuario import Usuario
 from PlayList import Playlist
 from Idiomas import Idioma
@@ -12,8 +12,9 @@ class Main:
         self.choices ={
                        "1": self.RegistrarUs,
                        "2": self.CambiarNombre,
-                       "3": self.verUsuario,
+                       "3": self.verUsuarios,
                        "4": self.CrearPlaylist,
+<<<<<<< HEAD
                        "5": self.VerPlay,
                        "6": self.GenerarUsuarios,
                        "7": self.GenerarPlay,
@@ -32,10 +33,32 @@ class Main:
 
     def GenerarPlay(self):
         Datos.generarPaly()
+=======
+                       "5": self.EliminarUs,
+                       "6": self.salir
+        }
+	
+#Este método es para desplegar el menu
+>>>>>>> 21f6b96a209c5d4f6b31b6e8bce4f82c2c90e6ee
 
     @staticmethod
     def display_menu():
         print(Idioma.diccionarioMensajes.get("operaciones"))
+
+    @staticmethod
+    def EliminarUs():
+        if len(Usuario.lista_us)==0:
+            print("No hay usuarios para eliminar.")
+        else:
+            while True:        
+                idel=input((Idioma.diccionarioMensajes.get("ElId")))                
+                if int(idel)<(len(Usuario.lista_us)):
+                    Usuario.EliminarUs(idel)
+                    break
+                else:
+                    print("El ID ingresado es inválido.")
+
+
 
 #Este método es para elegir el idioma
     @staticmethod
@@ -50,8 +73,8 @@ class Main:
         elif idioma =="2":
             Idioma.diccionarioMensajes = Idioma.ingles
 
-#Este método es para ingresar usuarios
     @staticmethod
+<<<<<<< HEAD
     def RegistrarUs ():
         nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
 		
@@ -64,6 +87,30 @@ class Main:
         Usuario.lista_us.append(u1) 
 		
         print(Idioma.diccionarioMensajes.get("saludo") + "" + u1.getNombre())
+=======
+    def verUsuarios():
+        Usuario.verUsuarios()
+
+#Este método es para ingresar usuarios
+    @staticmethod
+    def RegistrarUs ():        
+        while True:
+            nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
+            if Usuario.VerificacionNombre(nombre):
+                print('El nombre ya se encuentra ocupado.')
+            else:
+                break
+        
+        while True:
+            email=input(Idioma.diccionarioMensajes.get("emailUs"))
+            if Usuario.VerificacionEmail(email):
+                print('El email ya se encuentra en uso.')
+            else:
+                break
+        pas=input(Idioma.diccionarioMensajes.get("passwordUs"))        
+        Usuario(nombre,email,pas)    
+        print(Idioma.diccionarioMensajes.get("saludo") + " " +nombre)
+>>>>>>> 21f6b96a209c5d4f6b31b6e8bce4f82c2c90e6ee
 
 #Cambiar el nombre del usuario
     @staticmethod
@@ -85,7 +132,11 @@ class Main:
     @staticmethod
     def salir():
         print(Idioma.diccionarioMensajes.get("salir"))
+<<<<<<< HEAD
         sys.exit(0)
+=======
+        os._exit(0)
+>>>>>>> 21f6b96a209c5d4f6b31b6e8bce4f82c2c90e6ee
  
 
 #Aqui se corre el programa

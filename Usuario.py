@@ -6,8 +6,10 @@ class Usuario:
 
 	def __init__(self,nombre,email,password):
 		self._nombre=nombre
+
 		Usuario._id+=1
 		self._id=Usuario._id
+
 		self._email=email
 		self._password=password
 		self._listaResenas=[]
@@ -29,6 +31,33 @@ class Usuario:
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def setResena(self, comment):
 		self._listaResenas.append(comment)
+
+	def EliminarUs (self,ids):
+		Usuario.lista_us.pop(int(ids))
+		print('Total de usuarios:'+" "+str(len(Usuario.lista_us)))
+
+	@staticmethod
+	def verUsuarios():
+	    for usuario in Usuario.lista_us:
+	        print(usuario._nombre,usuario._email,usuario._password)
+
+		
+
+	@staticmethod
+	def VerificacionNombre(nombre):
+		for usuario in Usuario.lista_us:
+			if nombre==usuario._nombre:
+				return True
+	
+	@staticmethod
+	def VerificacionEmail(email):
+		for usuario in Usuario.lista_us:
+			if email==usuario._email:
+				return True
+
+#Los gets y sets para id, nombre, email, pero solo en password tiene set
+	def getId (self):
+		return self._ids
 
 	def setPlaylist(self,play):
 		self._playlisty.append(play)
