@@ -14,11 +14,14 @@ class Usuario:
 	@staticmethod
 	def EliminarUs (ids):
 		Usuario.lista_us.pop(int(ids))
+		print('Total de usuarios:'+" "+str(len(Usuario.lista_us)))
 
 	@staticmethod
 	def verUsuarios():
-	   for usuario in Usuario.lista_us:
+	    for usuario in Usuario.lista_us:
 	        print(usuario._nombre,usuario._email,usuario._password)
+
+		
 
 	@staticmethod
 	def VerificacionNombre(nombre):

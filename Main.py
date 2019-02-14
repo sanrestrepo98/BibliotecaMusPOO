@@ -25,8 +25,18 @@ class Main:
 
     @staticmethod
     def EliminarUs():
-        idel=input((Idioma.diccionarioMensajes.get("ElId")))
-        Usuario.EliminarUs(idel)
+        if len(Usuario.lista_us)==0:
+            print("No hay usuarios para eliminar.")
+        else:
+            while True:        
+                idel=input((Idioma.diccionarioMensajes.get("ElId")))                
+                if int(idel)<(len(Usuario.lista_us)):
+                    Usuario.EliminarUs(idel)
+                    break
+                else:
+                    print("El ID ingresado es inválido.")
+
+
 
 #Este método es para elegir el idioma
     @staticmethod
