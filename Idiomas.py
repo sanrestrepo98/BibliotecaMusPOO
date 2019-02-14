@@ -3,14 +3,23 @@ class Idioma:
 	diccionarioMensajes = {}
 	#Acá van todos los mensajes en español, tenemos que definir cuáles serán, por el momento pondré el menú inicial
 	español = {
-	"operaciones": """
+	"operacionesLogin": """
 		Opciones
-		1. Registrarse
+		1. Iniciar Sesión
+		2. Registrarse	
+		3. Salir
+		""",
+	"operacionesUsuario": """
+		Opciones
+		1. Crear Playlist
+		2. Salir
+		""",
+	"operacionesAdmin": """
+		Opciones
+		1. Eliminar Usuario
 		2. Cambiar Nombre
 		3. Ver Usuarios
-		4. Crear Playlist
-		5. Eliminar Usuario
-		6. Salir
+		4. Salir
 		""",
       "saludo": "Hola ",
 	"opcion": "¿Qué desea hacer?: ",

@@ -9,19 +9,24 @@ class Main:
     def __init__(self):
         self.break_while=1
         self.choices ={
-                       "1": self.RegistrarUs,
-                       "2": self.CambiarNombre,
-                       "3": self.verUsuarios,
-                       "4": self.CrearPlaylist,
-                       "5": self.EliminarUs,
-                       "6": self.salir
+                       "1": self.IniciarSesion,
+                       "2": self.RegistrarUs,
+                       "3": self.salir
         }
 	
 #Este método es para desplegar el menu
+    
+    @staticmethod
+    def display_menu_login():
+        print(Idioma.diccionarioMensajes.get("operacionesLogin"))
+
+    @staticmethod    
+    def display_menu_usuario():
+        print(Idioma.diccionarioMensajes.get("operacionesUsuario"))
 
     @staticmethod
-    def display_menu():
-        print(Idioma.diccionarioMensajes.get("operaciones"))
+    def display_menu_admin():
+        print(Idioma.diccionarioMensajes.get("operacionesAdmin"))
 
     @staticmethod
     def EliminarUs():
@@ -55,7 +60,23 @@ class Main:
     def verUsuarios():
         Usuario.verUsuarios()
 
-#Este método es para ingresar usuarios
+    @staticmethod
+    def IniciarSesion():
+        while True:
+            nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
+            if Usuario.VerificacionNombre(nombre):
+                break
+            else:
+                print('El usuario ingresado no está registrado.')        
+        while True:
+            pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
+            if Usuario.VerificacionEmail(email):
+                print('El email ya se encuentra en uso.')
+            else:
+                break
+
+
+
     @staticmethod
     def RegistrarUs ():        
         while True:
@@ -89,7 +110,7 @@ class Main:
         Playlist.lista_play.append(p1)
 
 #Este método es para salir de la aplicación(? (No estoy muy seguro :c)
-    @staticmethod
+    
     def salir():
         print(Idioma.diccionarioMensajes.get("salir"))
         os._exit(0)
@@ -100,7 +121,7 @@ class Main:
     def run (self):
         Main.idiomaMensajes()
         while self.break_while==1:
-            self.display_menu()
+            self.display_menu_login()
             opcion = input(Idioma.diccionarioMensajes.get("opcion"))
             action = self.choices.get(opcion)
             if action:
