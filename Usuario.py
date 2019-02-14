@@ -71,7 +71,8 @@ class Usuario:
 	def getNombre(self):
 		return self._nombre
 
-	def setNombre(self,nom):
+	@staticmethod
+	def setNombre(nom):
 		self._nombre=nom
 
 	def getEmail(self):
