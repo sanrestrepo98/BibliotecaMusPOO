@@ -1,40 +1,49 @@
 import sys
+from Idiomas import Idioma
 class Usuario:
-
+	_id=0
 	lista_us=[]
 
-	def __init__(self,nombre,ids,email,password):
+	def __init__(self,nombre,email,password):
 		self._nombre=nombre
-		self._ids=ids
+		Usuario._id+=1
+		self._id=Usuario._id
 		self._email=email
 		self._password=password
+		self._listaResenas=[]
+		self._playlisty=[]
 		Usuario.lista_us.append(self)
 		
 
 ##Este método elimina usuarios
 	@staticmethod
-	def EliminarUs (ids):
-		for idss in Usuario.lista_us:
-			if(ids==idss.getId()):
-				Usuario.lista_us.remove(idss)
-
+	def mostrarUsuarios():
+		for arc in Usuario.lista_us:
+			print (arc.verUsuarios())
 	@staticmethod
-	def verUsuarios():
-	   for usuario in Usuario.lista_us:
-	           return usuario
+	def EliminarUs (id):
+		for ids in Usuario.lista_us:
+			if(id==ids.getId()):
+				Usuario.lista_us.remove(ids)
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
-	def getId (self):
-		return self._id
+	def setResena(self, comment):
+		self._listaResenas.append(comment)
 
-	def setId (self,ids):
-		self._ids=ids
+	def setPlaylist(self,play):
+		self._playlisty.append(play)
+
+	def getPlaylist(self):
+		return self._playlisty
+
+	def getId(self):
+		return self._id
 
 	def getNombre(self):
 		return self._nombre
 
-	def setNombre(self,nombre):
-		self._nombre=nombre
+	def setNombre(self,nom):
+		self._nombre=nom
 
 	def getEmail(self):
 		return self._email
@@ -45,7 +54,8 @@ class Usuario:
 	def setPassword(self,password):
 		self._password=password
 
-
-
-
-
+	def verUsuarios(self):
+		retorno = Idioma.diccionarioMensajes.get("formatoUsuario") % (self.getId(),self.getNombre(),self.getEmail())
+		for play in self.getPlaylist():
+			retorno = retorno +" \n" +play.verPlayinRef() 
+		return retorno

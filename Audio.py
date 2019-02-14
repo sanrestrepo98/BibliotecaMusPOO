@@ -1,50 +1,50 @@
 import sys
 class Archivo:
 	
-	ListaArchivos = {}
+	ListaArchivos = []
 	
 	def __init__ (self, titulo,artista,album,genero,region,fecha):
-		str self._titulo=titulo
-		str self._artista=artista
-		str self._album=album
-		str self._genero=genero
-		str self._region=region
-		int self._descargas=0
-		date self._fecha=fecha
+		self._titulo=titulo
+		self._artista=artista
+		self._album=album
+		self._genero=genero
+		self._region=region
+		self._descargas=0
+		self._fecha=fecha
 		Archivo.ListaArchivos.append(self)
 
 	@staticmethod
-	def BuscarPorTitulo(self,title):
+	def BuscarPorTitulo(title):
 		for song in Archivo.ListaArchivos:
-			if Archivo.getTitulo() == title:
+			if song.getTitulo() == title:
 				return song
 
 	@staticmethod
-	def BuscarPorArtista(self,artista):
+	def BuscarPorArtista(artista):
 		for song in Archivo.ListaArchivos:
-			if Archivo.getArtista() == artista:
+			if song.getArtista() == artista:
 				return song
 
 	@staticmethod
-	def BuscarPorAlbum(self,album):
+	def BuscarPorAlbum(album):
 		for song in Archivo.ListaArchivos:
-			if Archivo.getAlbum() == album:
+			if song.getAlbum() == album:
 				return song
 
 	@staticmethod
-	def BuscarPorGenero(self,genero):
+	def BuscarPorGenero(genero):
 		for song in Archivo.ListaArchivos:
-			if Archivo.getGenero() == genero:
+			if song.getGenero() == genero:
 				return song
 
 	@staticmethod
-	def BuscarPorRegion(self,region):
+	def BuscarPorRegion(region):
 		for song in Archivo.ListaArchivos:
-			if Archivo.getRegion() == genero:
+			if song.getRegion() == region:
 				return song
 
 	@staticmethod
-	def BorrarArchivo(self,titulo):
+	def BorrarArchivo(titulo):
 		Archivo.ListaArchivos.remove(titulo)
 
 	def setTitulo (self, title):
@@ -63,7 +63,7 @@ class Archivo:
 		self._album = album
 
 	def getAlbum (self):
-		return self._Album
+		return self._album
 
 	def setGenero (self,genero):
 		self._genero = genero

@@ -2,6 +2,7 @@ import sys
 from Usuario import Usuario
 from PlayList import Playlist
 from Idiomas import Idioma
+from Datos import Datos
 
 #Esta clase es para ejecutar el programa
 
@@ -13,13 +14,24 @@ class Main:
                        "2": self.CambiarNombre,
                        "3": self.verUsuario,
                        "4": self.CrearPlaylist,
-                       "5": self.salir
+                       "5": self.VerPlay,
+                       "6": self.GenerarUsuarios,
+                       "7": self.GenerarPlay,
+                       "8": self.salir
         }
 	
 #Este método es para desplegar el menu
-    @staticmethod
-    def verUsuario():
-        print(Usuario.verUsuarios())
+    def verUsuario(self):
+        Usuario.mostrarUsuarios()
+
+    def VerPlay(self):
+        Playlist.mostrarPlay()
+
+    def GenerarUsuarios(self):
+        Datos.generarUsuarios()
+
+    def GenerarPlay(self):
+        Datos.generarPaly()
 
     @staticmethod
     def display_menu():
@@ -42,37 +54,38 @@ class Main:
     @staticmethod
     def RegistrarUs ():
         nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
-
-        num=input(Idioma.diccionarioMensajes.get("idUs"))
 		
         ema=input(Idioma.diccionarioMensajes.get("emailUs"))
 	
         pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
         
-        u1=Usuario(nombre,num,ema,pas)
+        u1=Usuario(nombre,ema,pas)
         
         Usuario.lista_us.append(u1) 
 		
-        print(Idioma.diccionarioMensajes.get("saludo") + " " +u1.getNombre())
+        print(Idioma.diccionarioMensajes.get("saludo") + "" + u1.getNombre())
 
 #Cambiar el nombre del usuario
     @staticmethod
-    def CambiarNombre(nombre):
-        Usuario.setNombre(nombre)
+    def CambiarNombre(n):
+        Usuario.setNombre(n)
 
 #Crea Playlist
     @staticmethod
     def CrearPlaylist():
         nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
         des=input(Idioma.diccionarioMensajes.get("desPL"))
-        p1=Playlist(nom,des)
+        us=input(Idioma.diccionarioMensajes.get("nombreUsPlay"))
+        p1=Playlist(nom,des,us)
         Playlist.lista_play.append(p1)
+        print (Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
+
 
 #Este método es para salir de la aplicación(? (No estoy muy seguro :c)
     @staticmethod
     def salir():
         print(Idioma.diccionarioMensajes.get("salir"))
-        sys._exit(0)
+        sys.exit(0)
  
 
 #Aqui se corre el programa

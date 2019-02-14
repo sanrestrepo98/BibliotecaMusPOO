@@ -4,7 +4,7 @@ class Reseña:
 	ListaReseñas = []
 
 	def __init__(self,fecha,calificacion,comentario):
-		date self._fecha=fecha
+		self._fecha=fecha
 		self._calificacion=calificacion
 		self._comentario=comentario
 		Reseña.ListaReseñas.append(self)
