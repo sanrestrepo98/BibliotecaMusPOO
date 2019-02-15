@@ -3,6 +3,7 @@ from Usuario import Usuario
 from PlayList import Playlist
 from Idiomas import Idioma
 from Datos import Datos
+from loginUsuario import loginUsuario
 
 #Esta clase es para ejecutar el programa
 
@@ -10,7 +11,6 @@ class Main:
     def __init__(self):
         self.break_while=1
         self.choices ={
-
                        "1": self.IniciarSesion,
                        "2": self.RegistrarUs,
                        "3": self.salir
@@ -60,7 +60,7 @@ class Main:
         elif idioma =="2":
             Idioma.diccionarioMensajes = Idioma.ingles
 
-    
+   
 
     @staticmethod
     def verUsuarios():
@@ -72,6 +72,13 @@ class Main:
             nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
             if Usuario.VerificacionNombre(nombre):
                 pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
+                if Usuario.Autenticacion(nombre,pas):
+                    sesion=True
+                    while sesion:
+                        print(loginUsuario.display_menu_usuario())
+                        
+                else:
+                    print("Las credenciales no coinciden.")
             else:
                 print('El usuario ingresado no está registrado.')        
         

@@ -19,15 +19,7 @@ class Idioma:
 		1. Eliminar Usuario
 		2. Cambiar Nombre
 		3. Ver Usuarios
-<<<<<<< HEAD
 		4. Salir
-=======
-		4. Crear Playlist
-		5. ver Playlist
-		6. Generar Usuarios
-		7. Generar Playlist(genere usuarios primero)
-		8. Salir		
->>>>>>> be9d3101b97d9b526f59d02fe7129537e8e034a3
 		""",
 
       "saludo": "Hola ",
