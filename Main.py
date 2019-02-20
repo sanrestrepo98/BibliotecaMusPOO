@@ -3,24 +3,36 @@ from Usuario import Usuario
 from PlayList import Playlist
 from Idiomas import Idioma
 from Datos import Datos
-from loginUsuario import loginUsuario
+
 
 #Esta clase es para ejecutar el programa
 
 class Main:
-    def __init__(self):
-        self.break_while=1
-        self.choices ={
-                       "1": self.IniciarSesion,
-                       "2": self.RegistrarUs,
-                       "3": self.salir
-        }
+    
+        
 	
+    @staticmethod
+    def menuInicio():
+        print(Idioma.diccionarioMensajes.get("operacionesInicio"))
+        opcion=input(Idioma.diccionarioMensajes.get("opcion"))
+        if opcion=="1":
+            Main.IniciarSesion()
+            Main.menuInicio()
+        if opcion=="2":
+            Main.RegistrarUs()
+            Main.menuInicio()
+        if opcion=="3":
+            Main().run()
+        if opcion=="4":            
+            Main.salir()
+        else:            
+            print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))            
+            Main.menuInicio()
+
+
 #Este método es para desplegar el menu
     
-    @staticmethod
-    def display_menu_login():
-        print(Idioma.diccionarioMensajes.get("operacionesLogin"))
+    
 
     @staticmethod    
     def display_menu_usuario():
@@ -35,7 +47,7 @@ class Main:
     @staticmethod
     def EliminarUs():
         if len(Usuario.lista_us)==0:
-            print("No hay usuarios para eliminar.")
+            print(Idioma.diccionarioMensajes.get("NoUsuElim"))
         else:
             while True:        
                 idel=input((Idioma.diccionarioMensajes.get("ElId")))                
@@ -43,7 +55,7 @@ class Main:
                     Usuario.EliminarUs(idel)
                     break
                 else:
-                    print("El ID ingresado es inválido.")
+                    print(Idioma.diccionarioMensajes.get("NoUsuElim"))
 
 
 
@@ -75,23 +87,29 @@ class Main:
                 if Usuario.Autenticacion(nombre,pas):
                     sesion=True
                     while sesion:
-                        print(loginUsuario.display_menu_usuario())
-                        
+                        print(Usuario.display_menu_usuario())
+                        opcion = input(Idioma.diccionarioMensajes.get("opcion"))
+                        if opcion=="2":
+                            Main.menuInicio()
+                        else:
+                            Usuario.menu(str(opcion),nombre)                        
+                    else:
+                        print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))             
                 else:
-                    print("Las credenciales no coinciden.")
+                    print(Idioma.diccionarioMensajes.get("credNo"))
             else:
-                print('El usuario ingresado no está registrado.')        
+                print(Idioma.diccionarioMensajes.get("NoReg"))        
         
     @staticmethod
     def RegistrarUs():
         while True:
             nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
             if Usuario.VerificacionNombre(nombre):
-                print('El nombre de usuario ya está en uso.') 
+                print(Idioma.diccionarioMensajes.get("UsExiste")) 
             else:
                 ema=input(Idioma.diccionarioMensajes.get("emailUs"))
                 if Usuario.VerificacionEmail(ema):
-                    print('El email ya se encuentra en uso.')
+                    print(Idioma.diccionarioMensajes.get("EmExiste"))
                 else:
                     pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
                     break    
@@ -103,14 +121,7 @@ class Main:
  #remover el static y llamar el método desde la clase
 
 #Crea Playlist
-    @staticmethod
-    def CrearPlaylist():
-        nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
-        des=input(Idioma.diccionarioMensajes.get("desPL"))
-        us=input(Idioma.diccionarioMensajes.get("nombreUsPlay"))
-        p1=Playlist(nom,des,us)
-        Playlist.lista_play.append(p1)
-        print (Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
+    
 
 
 #Este método es para salir de la aplicación(? (No estoy muy seguro :c)
@@ -125,14 +136,9 @@ class Main:
      
     def run (self):
         Main.idiomaMensajes()
-        while self.break_while==1:
-            self.display_menu_login()
-            opcion = input(Idioma.diccionarioMensajes.get("opcion"))
-            action = self.choices.get(opcion)
-            if action:
-                action()
-            else:
-                print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
+        Main.menuInicio()
+            
+            
                
 if __name__ == "__main__":
     Main().run()

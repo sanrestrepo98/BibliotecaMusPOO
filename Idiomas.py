@@ -3,16 +3,18 @@ class Idioma:
 	diccionarioMensajes = {}
 	#Acá van todos los mensajes en español, tenemos que definir cuáles serán, por el momento pondré el menú inicial
 	español = {
-	"operacionesLogin": """
+	"operacionesInicio": """
 		Opciones
 		1. Iniciar Sesión
-		2. Registrarse	
-		3. Salir
+		2. Registrarse
+		3. Cambiar Idioma	
+		4. Salir
 		""",
 	"operacionesUsuario": """
 		Opciones
 		1. Crear Playlist
-		2. Salir
+		2. Cerrar Sesión
+		3. Salir
 		""",
 	"operacionesAdmin": """
 		Opciones
@@ -22,7 +24,7 @@ class Idioma:
 		4. Salir
 		""",
 
-      "saludo": "Hola ",
+      "saludo": "Bienvenido a la biblioteca, ",
 	"opcion": "¿Qué desea hacer?: ",
 	"opcionNoValida": "{0} no es una opción válida",
 	"salir": "Hasta luego, vuelve pronto :c",
@@ -39,26 +41,44 @@ class Idioma:
 	"MensajeCreacionPlay": "Has creado una PlayList :3",
 	"desPL": "Ingrese la descripción de la Playlist: ",
 	"ElId": "Ingrese el id del usuario a eliminar: ",
+	"sesExito": "Sesión iniciada con éxito.",
+	"credNo": "Las credenciales no coinciden",
+	"NoReg": "El usuario ingresado no está registrado.",
+	"UsExiste": "El usuario ya se encuentra en uso.",
+	"EmExiste": "El email ya se encuentra en uso.",
+	"NoUsuElim":" No hay usuarios para eliminar.",
+	"IdInval": "El ID ingresado es inválido."
+
 	#Acá se van agregando todos los textos que querramos
 	}
 	
 	ingles = {
-	"operaciones": """
+	"operacionesInicio": """
 		Options
-		1. Sign up
-		2. Rename
-		3. See user
-		4. Create Playlist
-		5. See Playlist
-		6. Generate Users
-		7. Generate Playlist
-		6. Exit
+		1. Log in
+		2. Sign in
+		3. Change language
+		4. Exit
 		""",
+	"operacionesUsuario": """
+		Opciones
+		1. Create Playlist
+		2. Log out
+		3. Exit
+		""",
+	"operacionesAdmin": """
+		Opciones
+		1. Deleter user
+		2. Change name
+		3. See users
+		4. Exit
+		""",
+		
       "saludo": "Hi ",
 	"opcion": "What would you like to do?: ",
 	"opcionNoValida": "{0} isn't a valid option",
 	"salir": "Bye, see you later",
-	"nombreUs": "Set Username: ",
+	"nombreUs": "Enter your username: ",
 	"idUs": "Enter your id: ",
 	"emailUs": "Enter your e-mail: ",
 	"passwordUs": "Enter your password: ",

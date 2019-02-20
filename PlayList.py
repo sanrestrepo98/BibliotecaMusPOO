@@ -17,7 +17,7 @@ class Playlist:
 	def AgregarAr (self,nombreDeLaCan):
 		for cancion in Archivo.ListaArchivos:
 			if(cancion.getTitulo()==nombreDeLaCan):
-				Playlist.setArc(cancion)
+				PlayList.setArc(cancion)
 
 #Eliminar archivos
 	@staticmethod
@@ -30,6 +30,8 @@ class Playlist:
 	def mostrarPlay():
 		for play in Playlist.lista_play:
 			print(play.verPlay())
+
+	
 
 #Gets y sets para nombre de la playlist y la descripcion
 

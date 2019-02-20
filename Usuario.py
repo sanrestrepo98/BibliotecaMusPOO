@@ -1,6 +1,7 @@
-import sys
+import os
 from Idiomas import Idioma
-from loginUsuario import loginUsuario
+from PlayList import Playlist
+
 class Usuario:
 	lista_us=[]
 
@@ -13,8 +14,9 @@ class Usuario:
 		Usuario.lista_us.append(self)
 		
 
-##Este método elimina usuarios
 	
+
+##Este método elimina usuarios
 	@staticmethod
 	def EliminarUs (ids):
 		Usuario.lista_us.pop(int(ids))
@@ -23,8 +25,27 @@ class Usuario:
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def setResena(self, comment):
 		self._listaResenas.append(comment)
-
+		
+	@staticmethod
+	def display_menu_usuario():
+		return Idioma.diccionarioMensajes.get("operacionesUsuario")
+		
+	@staticmethod
+	def menu(opcion,user):
+		if opcion=="1":
+			Usuario.CrearPlaylist(user)
+		if opcion=="3":
+			Usuario.salir()
 	
+	@staticmethod
+	def CrearPlaylist(user):
+		nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
+		des=input(Idioma.diccionarioMensajes.get("desPL"))
+		p1=Playlist(nom,des,user)
+        #Playlist.lista_play.append(p1)
+		print(nom,des,user)
+		print(Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
+        
 
 	@staticmethod
 	def verUsuarios():
@@ -77,3 +98,7 @@ class Usuario:
 		self._password=password
 
 
+	@staticmethod
+	def salir():
+		print(Idioma.diccionarioMensajes.get("salir"))
+		os._exit(0)
