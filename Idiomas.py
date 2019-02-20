@@ -21,7 +21,8 @@ class Idioma:
 		1. Eliminar Usuario
 		2. Cambiar Nombre
 		3. Ver Usuarios
-		4. Salir
+		4. Cerrar Sesión
+		5. Salir
 		""",
 
       "saludo": "Bienvenido a la biblioteca, ",

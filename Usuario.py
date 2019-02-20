@@ -4,23 +4,38 @@ from PlayList import Playlist
 
 class Usuario:
 	lista_us=[]
-
-	def __init__(self,nombre,email,password):
+	
+	def __init__(self,nombre,email,password,rol):
 		self._nombre=nombre
 		self._email=email
 		self._password=password
+		self._rol=rol
 		self._listaResenas=[]
 		self._playlisty=[]
-		Usuario.lista_us.append(self)
 		
 
-	
+	#Inicializador del admin	
+	@staticmethod
+	def admin():
+		u=Usuario("admin","admin","123","admin")
+		Usuario.lista_us.append(u)
+		print(len(Usuario.lista_us))
+
 
 ##Este método elimina usuarios
 	@staticmethod
-	def EliminarUs (ids):
-		Usuario.lista_us.pop(int(ids))
-		print('Total de usuarios:'+" "+str(len(Usuario.lista_us)))
+	def EliminarUs():
+		if len(Usuario.lista_us)==0:
+			print(Idioma.diccionarioMensajes.get("NoUsuElim"))
+		else:
+			while True:
+				idel=input((Idioma.diccionarioMensajes.get("ElId")))
+				if int(idel)<(len(Usuario.lista_us)):
+					Usuario.lista_us.pop(int(idel))
+					print('Total de usuarios:'+" "+str(len(Usuario.lista_us)))
+					break
+				else:
+					print(Idioma.diccionarioMensajes.get("NoUsuElim"))
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def setResena(self, comment):
@@ -34,8 +49,31 @@ class Usuario:
 	def menu(opcion,user):
 		if opcion=="1":
 			Usuario.CrearPlaylist(user)
-		if opcion=="3":
+		elif opcion=="3":
 			Usuario.salir()
+		else:
+			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
+		 
+
+	@staticmethod
+	def display_menu_admin():
+		return Idioma.diccionarioMensajes.get("operacionesAdmin")
+		
+	
+	@staticmethod
+	def menuAdmin(opcion,user):
+		if opcion=="1":			
+			Usuario.EliminarUs()
+		elif opcion=="2":
+			#Usuario.setNombre
+			print("op 2 imp")
+		elif opcion=="3":
+			Usuario.verUsuarios()			
+		elif opcion=="5":
+			Usuario.salir()
+		else:
+			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
+		
 	
 	@staticmethod
 	def CrearPlaylist(user):
@@ -72,6 +110,21 @@ class Usuario:
 				if pas==usuario._password:					
 					return True
 
+	@staticmethod
+	def rolVer(nombre):
+		for usuario in Usuario.lista_us:
+			if nombre==usuario.getNombre():
+				if "admin"==usuario.getRol():
+					return True
+	
+	@staticmethod
+	def obtenerId(user):
+		for usuario in Usuario.lista_us:
+			if user==usuario.getNombre():
+				id=Usuario.lista_us.index(user)
+				return id
+		
+
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 
 
@@ -84,7 +137,9 @@ class Usuario:
 	def getNombre(self):
 		return self._nombre
 
-	
+	def getRol(self):
+		return self._rol
+
 	def setNombre(self,nom):
 		self._nombre=nom
 

@@ -44,18 +44,7 @@ class Main:
     def display_menu_admin():
         print(Idioma.diccionarioMensajes.get("operacionesAdmin"))
 
-    @staticmethod
-    def EliminarUs():
-        if len(Usuario.lista_us)==0:
-            print(Idioma.diccionarioMensajes.get("NoUsuElim"))
-        else:
-            while True:        
-                idel=input((Idioma.diccionarioMensajes.get("ElId")))                
-                if int(idel)<(len(Usuario.lista_us)):
-                    Usuario.EliminarUs(idel)
-                    break
-                else:
-                    print(Idioma.diccionarioMensajes.get("NoUsuElim"))
+   
 
 
 
@@ -85,23 +74,31 @@ class Main:
             if Usuario.VerificacionNombre(nombre):
                 pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
                 if Usuario.Autenticacion(nombre,pas):
-                    sesion=True
-                    while sesion:
-                        print(Usuario.display_menu_usuario())
-                        opcion = input(Idioma.diccionarioMensajes.get("opcion"))
-                        if opcion=="2":
-                            Main.menuInicio()
-                        else:
-                            Usuario.menu(str(opcion),nombre)                        
+                    if Usuario.rolVer(nombre):
+                        while True:
+                            print(Usuario.display_menu_admin())
+                            opcion = input(Idioma.diccionarioMensajes.get("opcion"))
+                            if opcion=="4":
+                                Main.menuInicio()
+                            else:
+                                Usuario.menuAdmin(str(opcion),nombre)
                     else:
-                        print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))             
+                        sesion=True
+                        while sesion:
+                            print(Usuario.display_menu_usuario())
+                            opcion = input(Idioma.diccionarioMensajes.get("opcion"))
+                            if opcion=="2":
+                                Main.menuInicio()
+                            else:
+                                Usuario.menu(str(opcion),nombre)                      
                 else:
                     print(Idioma.diccionarioMensajes.get("credNo"))
             else:
-                print(Idioma.diccionarioMensajes.get("NoReg"))        
+                print(Idioma.diccionarioMensajes.get("NoReg"))   
+       
         
     @staticmethod
-    def RegistrarUs():
+    def RegistrarUs():        
         while True:
             nombre=input((Idioma.diccionarioMensajes.get("nombreUs")))
             if Usuario.VerificacionNombre(nombre):
@@ -113,7 +110,7 @@ class Main:
                 else:
                     pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
                     break    
-        u1=Usuario(nombre,ema,pas)        
+        u1=Usuario(nombre,ema,pas,"normal")        
         Usuario.lista_us.append(u1) 		
         print(Idioma.diccionarioMensajes.get("saludo") + "" + u1.getNombre())
 
@@ -135,10 +132,12 @@ class Main:
 #Aqui se corre el programa
      
     def run (self):
-        Main.idiomaMensajes()
+        Main.idiomaMensajes()        
         Main.menuInicio()
+        
             
             
                
 if __name__ == "__main__":
+    Usuario.admin()
     Main().run()
