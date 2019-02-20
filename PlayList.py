@@ -13,15 +13,15 @@ class Playlist:
 		Playlist.lista_play.append(self)
 
 #Agrega archivos
-	@staticmethod
 	def AgregarAr (self,nombreDeLaCan):
 		for cancion in Archivo.ListaArchivos:
 			if(cancion.getTitulo()==nombreDeLaCan):
-				PlayList.setArc(cancion)
+				self._listArc.append(cancion)
 
+	
 #Eliminar archivos
 	@staticmethod
-	def EliminarAr (self,nombreDeLaCancion):
+	def EliminarAr (nombreDeLaCancion):
 		for titulo in Playlist.lista_play:
 			if(titulo.getTitulo==nombreDeLaCancion):
 				Playlist.lista_play.remove(titulo)
@@ -35,8 +35,6 @@ class Playlist:
 
 #Gets y sets para nombre de la playlist y la descripcion
 
-	def setArc(self, arc):
-		self._listArc.append(arc)
 
 	def getArc(self):
 		return self._listArc

@@ -80,7 +80,7 @@ class Usuario:
 		nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
 		des=input(Idioma.diccionarioMensajes.get("desPL"))
 		p1=Playlist(nom,des,user)
-        #Playlist.lista_play.append(p1)
+		Playlist.lista_play.append(p1)
 		print(nom,des,user)
 		print(Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
         
