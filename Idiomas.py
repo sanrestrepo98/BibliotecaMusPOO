@@ -21,8 +21,9 @@ class Idioma:
 		1. Eliminar Usuario
 		2. Cambiar Nombre
 		3. Ver Usuarios
-		4. Cerrar Sesión
-		5. Salir
+		4. Dar privilegios de administrador
+		5. Cerrar Sesión
+		6. Salir
 		""",
 
       "saludo": "Bienvenido a la biblioteca, ",
@@ -47,8 +48,12 @@ class Idioma:
 	"NoReg": "El usuario ingresado no está registrado.",
 	"UsExiste": "El usuario ya se encuentra en uso.",
 	"EmExiste": "El email ya se encuentra en uso.",
-	"NoUsuElim":" No hay usuarios para eliminar.",
-	"IdInval": "El ID ingresado es inválido."
+	"NoUsuElim":" No hay un usuario con ese id para eliminar.",
+	"IdInval": "El ID ingresado es inválido.",
+	"UsuarioAdmin": "Ingrese el nombre el usuario a privilegiar: ",
+	"ElimInva": "El usuario no se puede eliminar.",
+	"newUs": "Ingrese el nuevo nombre de usuario: "
+
 
 	#Acá se van agregando todos los textos que querramos
 	}

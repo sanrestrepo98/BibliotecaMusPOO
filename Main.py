@@ -45,9 +45,6 @@ class Main:
         print(Idioma.diccionarioMensajes.get("operacionesAdmin"))
 
    
-
-
-
 #Este método es para elegir el idioma
     @staticmethod
     def idiomaMensajes():
@@ -60,13 +57,14 @@ class Main:
             Idioma.diccionarioMensajes = Idioma.español
         elif idioma =="2":
             Idioma.diccionarioMensajes = Idioma.ingles
+        else:
+            print(Idioma.diccionarioMensajes.get("opcionNoValida").format(idioma))
+            Main.idiomaMensajes()
+
 
    
 
-    @staticmethod
-    def verUsuarios():
-        Usuario.verUsuarios()
-
+ 
     @staticmethod
     def IniciarSesion():
         while True:
@@ -78,7 +76,7 @@ class Main:
                         while True:
                             print(Usuario.display_menu_admin())
                             opcion = input(Idioma.diccionarioMensajes.get("opcion"))
-                            if opcion=="4":
+                            if opcion=="5":
                                 Main.menuInicio()
                             else:
                                 Usuario.menuAdmin(str(opcion),nombre)
@@ -115,7 +113,7 @@ class Main:
         print(Idioma.diccionarioMensajes.get("saludo") + "" + u1.getNombre())
 
 #Cambiar el nombre del usuario
- #remover el static y llamar el método desde la clase
+
 
 #Crea Playlist
     

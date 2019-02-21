@@ -30,12 +30,15 @@ class Usuario:
 		else:
 			while True:
 				idel=input((Idioma.diccionarioMensajes.get("ElId")))
-				if int(idel)<(len(Usuario.lista_us)):
-					Usuario.lista_us.pop(int(idel))
-					print('Total de usuarios:'+" "+str(len(Usuario.lista_us)))
-					break
+				if idel!="0":
+					if int(idel)<(len(Usuario.lista_us)):
+						Usuario.lista_us.pop(int(idel))
+						print('Total de usuarios:'+" "+str(len(Usuario.lista_us)))
+						break
+					else:
+						print(Idioma.diccionarioMensajes.get("NoUsuElim"))
 				else:
-					print(Idioma.diccionarioMensajes.get("NoUsuElim"))
+					print(Idioma.diccionarioMensajes.get("ElimInva"))
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 	def setResena(self, comment):
@@ -62,19 +65,25 @@ class Usuario:
 	
 	@staticmethod
 	def menuAdmin(opcion,user):
-		if opcion=="1":			
+		if opcion=="1":
+
 			Usuario.EliminarUs()
 		elif opcion=="2":
-			#Usuario.setNombre
-			print("op 2 imp")
+			Usuario.verUsuarios()
+			nombre=input("Ingrese el nombre que desea cambiar: ")
+			Usuario.cambiarNombre(nombre)
 		elif opcion=="3":
-			Usuario.verUsuarios()			
-		elif opcion=="5":
+			Usuario.verUsuarios()
+		elif opcion=="4":
+			Usuario.verUsuarios()
+			usad=input(Idioma.diccionarioMensajes.get("UsuarioAdmin"))			
+			Usuario.priviAdmin(usad)
+		elif opcion=="6":
 			Usuario.salir()
 		else:
 			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
 		
-	
+
 	@staticmethod
 	def CrearPlaylist(user):
 		nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
@@ -88,7 +97,7 @@ class Usuario:
 	@staticmethod
 	def verUsuarios():
 	    for usuario in Usuario.lista_us:
-	        print(usuario._nombre,usuario._email,usuario._password)
+	        print(usuario.getNombre(),usuario.getEmail(),usuario._password,usuario._rol)
 		
 
 	@staticmethod
@@ -121,8 +130,25 @@ class Usuario:
 	def obtenerId(user):
 		for usuario in Usuario.lista_us:
 			if user==usuario.getNombre():
-				id=Usuario.lista_us.index(user)
+				id=Usuario.lista_us.index(usuario)
 				return id
+	
+	@staticmethod
+	def priviAdmin(nombre):
+		for usuario in Usuario.lista_us:
+			if nombre==usuario.getNombre():
+				usuario._rol="admin"
+
+	@staticmethod
+	def cambiarNombre(nombre):
+		for usuario in Usuario.lista_us:
+			if nombre==usuario.getNombre():
+				newname=input(Idioma.diccionarioMensajes.get("newUs"))
+				if Usuario.VerificacionNombre(str(newname)):
+					print(Idioma.diccionarioMensajes.get("UsExiste"))
+				else:					
+					usuario._nombre=str(newname)
+				
 		
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
