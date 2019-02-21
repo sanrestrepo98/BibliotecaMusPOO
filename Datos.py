@@ -3,15 +3,39 @@ import random as r
 from PlayList import Playlist
 class Datos:
 
-	usuarios = ["Manuel","David","Santiago","Esteban","Nazly","Camu","euin"]
-	email = ["man@unal","davi@unal","salti@unal","esteba@unal","nazly@unal","cam@unal", "euin@unal" ]
-	contraseña= ["asdw","asdf","asdf4r2", "asdfqwer","sdfgwer","aerqw445","wytuiyiyt6"]
-	rol=["admin","normal","normal","normal","admin","normal","normal"]
-	Play=["lamejor","bailar","caminar","matar","enterrar","fingir","culQ#$%",]
-	descripcion=["cuando este feliz","para conocer la victima","cuando ya me tenga confianza","bueno, mas felicidad","cuando me interroguen","visitar el cuerpo todas las noches"]
-	visibilidad=["1","1","0","1","0","0","1"]
+	usuarios = []
+	email = []
+	contraseña= []
+	rol=[]
+	Play=[]
+	descripcion=[]
+	visibilidad=[]
+	def leer_archivos():
+
+    with open('usuarios.txt') as data_file: 
+        for line in data_file: 
+           usuarios.append(line.strip().split(',')) 
+    with open('email.txt') as data_file: 
+        for line in data_file: 
+           email.append(line.strip().split(',')) 
+    with open('contraseña.txt') as data_file: 
+        for line in data_file: 
+           contraseña.append(line.strip().split(',')) 
+    with open('rol.txt') as data_file: 
+        for line in data_file: 
+           rol.append(line.strip().split(',')) 
+    with open('Play.txt') as data_file: 
+        for line in data_file: 
+           Play.append(line.strip().split(',')) 
+    with open('descripcion.txt') as data_file: 
+        for line in data_file: 
+           descripcion.append(line.strip().split(',')) 
+    with open('visibilidad.txt') as data_file: 
+        for line in data_file: 
+           visibilidad.append(line.strip().split(',')) 
 	@staticmethod
 	def generarUsuarios():
+		leer_archivos()
 		for i in range (0,len(Datos.usuarios)):
 			nom = Datos.usuarios[i]
 			ema = Datos.email[i]
