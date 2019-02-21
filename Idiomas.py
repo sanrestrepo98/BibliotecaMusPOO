@@ -13,8 +13,10 @@ class Idioma:
 	"operacionesUsuario": """
 		Opciones
 		1. Crear Playlist
-		2. Cerrar Sesión
-		3. Salir
+		2. Ver Playlist propias
+		3. Ver Playlist públicas de la plataforma
+		4. Cerrar Sesión
+		5. Salir
 		""",
 	"operacionesAdmin": """
 		Opciones
@@ -44,7 +46,7 @@ class Idioma:
 	"desPL": "Ingrese la descripción de la Playlist: ",
 	"ElId": "Ingrese el id del usuario a eliminar: ",
 	"sesExito": "Sesión iniciada con éxito.",
-	"credNo": "Las credenciales no coinciden",
+	"credNo": "Las credenciales no coinciden.",
 	"NoReg": "El usuario ingresado no está registrado.",
 	"UsExiste": "El usuario ya se encuentra en uso.",
 	"EmExiste": "El email ya se encuentra en uso.",
@@ -52,9 +54,8 @@ class Idioma:
 	"IdInval": "El ID ingresado es inválido.",
 	"UsuarioAdmin": "Ingrese el nombre el usuario a privilegiar: ",
 	"ElimInva": "El usuario no se puede eliminar.",
-	"newUs": "Ingrese el nuevo nombre de usuario: "
-
-
+	"newUs": "Ingrese el nuevo nombre de usuario: ",
+	"visPlay": "¿Desea que su playlist sea pública o privada? Ingrese 1 para pública o 0 para privada: "
 	#Acá se van agregando todos los textos que querramos
 	}
 	

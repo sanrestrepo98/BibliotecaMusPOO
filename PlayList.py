@@ -5,12 +5,14 @@ class Playlist:
 
 	lista_play=[]
 
-	def __init__(self,nombreP,descripcion,usu):
+	def __init__(self,nombreP,descripcion,usu,vis):
 		self._nombreP=nombreP
 		self._descripcion=descripcion
 		self._listArc=[]
 		self._us=usu
+		self._vis=vis
 		Playlist.lista_play.append(self)
+
 
 #Agrega archivos
 	def AgregarAr (self,nombreDeLaCan):
@@ -18,7 +20,21 @@ class Playlist:
 			if(cancion.getTitulo()==nombreDeLaCan):
 				self._listArc.append(cancion)
 
-	
+	@staticmethod
+	def CrearPlaylist(user):
+		nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
+		des=input(Idioma.diccionarioMensajes.get("desPL"))
+		while True:
+			vis=input(Idioma.diccionarioMensajes.get("visPlay"))
+			if vis=="0" or vis=="1":			
+				p1=Playlist(nom,des,user,vis)
+				Playlist.lista_play.append(p1)
+				print(nom,des,user)
+				print(Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
+				break
+			else:
+				print(Idioma.diccionarioMensajes.get("opcionNoValida").format(vis))
+        
 #Eliminar archivos
 	@staticmethod
 	def EliminarAr (nombreDeLaCancion):

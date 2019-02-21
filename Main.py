@@ -85,7 +85,7 @@ class Main:
                         while sesion:
                             print(Usuario.display_menu_usuario())
                             opcion = input(Idioma.diccionarioMensajes.get("opcion"))
-                            if opcion=="2":
+                            if opcion=="4":
                                 Main.menuInicio()
                             else:
                                 Usuario.menu(str(opcion),nombre)                      

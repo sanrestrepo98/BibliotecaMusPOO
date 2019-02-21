@@ -41,32 +41,33 @@ class Usuario:
 					print(Idioma.diccionarioMensajes.get("ElimInva"))
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
-	def setResena(self, comment):
-		self._listaResenas.append(comment)
+	
 		
 	@staticmethod
 	def display_menu_usuario():
 		return Idioma.diccionarioMensajes.get("operacionesUsuario")
-		
-	@staticmethod
-	def menu(opcion,user):
-		if opcion=="1":
-			Usuario.CrearPlaylist(user)
-		elif opcion=="3":
-			Usuario.salir()
-		else:
-			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
-		 
-
+	
 	@staticmethod
 	def display_menu_admin():
 		return Idioma.diccionarioMensajes.get("operacionesAdmin")
 		
+	@staticmethod
+	def menu(opcion,user):
+		if opcion=="1":
+			Playlist.CrearPlaylist(user)
+		elif opcion=="2":
+			print("ver playlist propias en desarrollo, pai")
+		elif opcion=="3":
+			print("ver playlist públicas")
+		elif opcion=="5":
+			Usuario.salir()
+		else:
+			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))	
+
 	
 	@staticmethod
 	def menuAdmin(opcion,user):
 		if opcion=="1":
-
 			Usuario.EliminarUs()
 		elif opcion=="2":
 			Usuario.verUsuarios()
@@ -82,18 +83,8 @@ class Usuario:
 			Usuario.salir()
 		else:
 			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
-		
 
-	@staticmethod
-	def CrearPlaylist(user):
-		nom=input(Idioma.diccionarioMensajes.get("nombrePL"))
-		des=input(Idioma.diccionarioMensajes.get("desPL"))
-		p1=Playlist(nom,des,user)
-		Playlist.lista_play.append(p1)
-		print(nom,des,user)
-		print(Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
-        
-
+	
 	@staticmethod
 	def verUsuarios():
 	    for usuario in Usuario.lista_us:
@@ -153,6 +144,8 @@ class Usuario:
 
 #Los gets y sets para id, nombre, email, pero solo en password tiene set
 
+	def setResena(self, comment):
+		self._listaResenas.append(comment)
 
 	def setPlaylist(self,play):
 		self._playlisty.append(play)
