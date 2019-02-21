@@ -27,14 +27,46 @@ class Playlist:
 		while True:
 			vis=input(Idioma.diccionarioMensajes.get("visPlay"))
 			if vis=="0" or vis=="1":			
-				p1=Playlist(nom,des,user,vis)
-				Playlist.lista_play.append(p1)
-				print(nom,des,user)
+				Playlist(nom,des,user,vis)
 				print(Idioma.diccionarioMensajes.get("MensajeCreacionPlay"))
+				print(Idioma.diccionarioMensajes.get("crearPlayExito").format(nom))				
 				break
 			else:
 				print(Idioma.diccionarioMensajes.get("opcionNoValida").format(vis))
         
+	@staticmethod
+	def verPlaylist():
+		for play in Playlist.lista_play:
+			print(play.getNombrep(),play.getDescripcion(),play.getUsu(),play.getVisi())
+
+	@staticmethod
+	def propPlay(usu):
+		listaPropias=[]
+		AuxIndi=0	
+		for play in Playlist.lista_play:			
+			if usu==play.getUsu():
+				AuxIndi=1
+				listaPropias.append(play)
+				print(play.getNombrep(),play.getDescripcion())
+				playli=int(input("Ingrese el ID de la playlist que desee: "))
+				if playli<(len(listaPropias)):
+					print(listaPropias[playli].getNombrep())
+
+		if AuxIndi==0:
+			print(Idioma.diccionarioMensajes.get("noPlay"))	
+
+	@staticmethod
+	def pubPlay():
+		verif=0
+		for play in Playlist.lista_play:
+			if play.getVisi()=="1":
+				verif=1
+				print(play.getNombrep(),play.getDescripcion())
+		if verif==0:
+			print(Idioma.diccionarioMensajes.get("noPlay"))	
+
+
+
 #Eliminar archivos
 	@staticmethod
 	def EliminarAr (nombreDeLaCancion):
@@ -51,6 +83,8 @@ class Playlist:
 
 #Gets y sets para nombre de la playlist y la descripcion
 
+	def getVisi(self):
+		return self._vis
 
 	def getArc(self):
 		return self._listArc

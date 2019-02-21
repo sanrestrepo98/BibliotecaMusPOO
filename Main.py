@@ -73,6 +73,7 @@ class Main:
                 pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
                 if Usuario.Autenticacion(nombre,pas):
                     if Usuario.rolVer(nombre):
+                        print(Idioma.diccionarioMensajes.get("sesExito"))
                         while True:
                             print(Usuario.display_menu_admin())
                             opcion = input(Idioma.diccionarioMensajes.get("opcion"))
@@ -82,6 +83,7 @@ class Main:
                                 Usuario.menuAdmin(str(opcion),nombre)
                     else:
                         sesion=True
+                        print(Idioma.diccionarioMensajes.get("sesExito"))
                         while sesion:
                             print(Usuario.display_menu_usuario())
                             opcion = input(Idioma.diccionarioMensajes.get("opcion"))
@@ -108,9 +110,9 @@ class Main:
                 else:
                     pas=input(Idioma.diccionarioMensajes.get("passwordUs"))
                     break    
-        u1=Usuario(nombre,ema,pas,"normal")        
-        Usuario.lista_us.append(u1) 		
-        print(Idioma.diccionarioMensajes.get("saludo") + "" + u1.getNombre())
+        Usuario(nombre,ema,pas,"normal")      
+        print(Idioma.diccionarioMensajes.get("saludo") + "" + nombre)
+
 
 #Cambiar el nombre del usuario
 

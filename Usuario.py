@@ -11,15 +11,15 @@ class Usuario:
 		self._password=password
 		self._rol=rol
 		self._listaResenas=[]
-		self._playlisty=[]
+		self._playlisty=[]		
+		Usuario.lista_us.append(self)
 		
 
 	#Inicializador del admin	
 	@staticmethod
 	def admin():
-		u=Usuario("admin","admin","123","admin")
-		Usuario.lista_us.append(u)
-		print(len(Usuario.lista_us))
+		Usuario("admin","admin","123","admin")
+		
 
 
 ##Este método elimina usuarios
@@ -56,9 +56,9 @@ class Usuario:
 		if opcion=="1":
 			Playlist.CrearPlaylist(user)
 		elif opcion=="2":
-			print("ver playlist propias en desarrollo, pai")
+			Playlist.propPlay(user)
 		elif opcion=="3":
-			print("ver playlist públicas")
+			Playlist.pubPlay()
 		elif opcion=="5":
 			Usuario.salir()
 		else:
@@ -85,6 +85,7 @@ class Usuario:
 			print(Idioma.diccionarioMensajes.get("opcionNoValida").format(opcion))
 
 	
+
 	@staticmethod
 	def verUsuarios():
 	    for usuario in Usuario.lista_us:

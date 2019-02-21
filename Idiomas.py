@@ -13,8 +13,8 @@ class Idioma:
 	"operacionesUsuario": """
 		Opciones
 		1. Crear Playlist
-		2. Ver Playlist propias
-		3. Ver Playlist públicas de la plataforma
+		2. Playlist propias
+		3. Playlist públicas de la plataforma
 		4. Cerrar Sesión
 		5. Salir
 		""",
@@ -31,7 +31,7 @@ class Idioma:
       "saludo": "Bienvenido a la biblioteca, ",
 	"opcion": "¿Qué desea hacer?: ",
 	"opcionNoValida": "{0} no es una opción válida",
-	"salir": "Hasta luego, vuelve pronto :c",
+	"salir": "		Hasta luego, vuelve pronto :c",
 	"nombreUs": "Ingrese Usuario: ",
 	"idUs": "Ingrese id: ",
 	"emailUs": "Ingrese e-mail: ",
@@ -42,20 +42,22 @@ class Idioma:
 	"formatoCortoPlay": "Nombre de la Playlist: %s Descripcion: %s ",
 	"desPL": "Ingrese la descripción de la Playlist: ",
 	"nombreUsPlay": "Ingrese Usuario Asociado",
-	"MensajeCreacionPlay": "Has creado una PlayList :3",
+	"MensajeCreacionPlay": "	Has creado una PlayList :3",
 	"desPL": "Ingrese la descripción de la Playlist: ",
 	"ElId": "Ingrese el id del usuario a eliminar: ",
-	"sesExito": "Sesión iniciada con éxito.",
-	"credNo": "Las credenciales no coinciden.",
-	"NoReg": "El usuario ingresado no está registrado.",
-	"UsExiste": "El usuario ya se encuentra en uso.",
-	"EmExiste": "El email ya se encuentra en uso.",
-	"NoUsuElim":" No hay un usuario con ese id para eliminar.",
-	"IdInval": "El ID ingresado es inválido.",
-	"UsuarioAdmin": "Ingrese el nombre el usuario a privilegiar: ",
-	"ElimInva": "El usuario no se puede eliminar.",
+	"sesExito": "		Sesión iniciada con éxito.",
+	"credNo": "		Las credenciales no coinciden.",
+	"NoReg": "		El usuario ingresado no está registrado.",
+	"UsExiste": "		El usuario ya se encuentra en uso.",
+	"EmExiste": "		El email ya se encuentra en uso.",
+	"NoUsuElim":"		No hay un usuario con ese id para eliminar.",
+	"IdInval": "		El ID ingresado es inválido.",
+	"UsuarioAdmin": "		Ingrese el nombre el usuario a privilegiar: ",
+	"ElimInva": "	El usuario no se puede eliminar.",
 	"newUs": "Ingrese el nuevo nombre de usuario: ",
-	"visPlay": "¿Desea que su playlist sea pública o privada? Ingrese 1 para pública o 0 para privada: "
+	"visPlay": "¿Desea que su playlist sea pública o privada? Ingrese 1 para pública o 0 para privada: ",
+	"noPlay": "		No hay playlists para mostrar en el momento.",
+	"crearPlayExito": "		(Se ha creado la playlist {0} con éxito.)"
 	#Acá se van agregando todos los textos que querramos
 	}
 	
